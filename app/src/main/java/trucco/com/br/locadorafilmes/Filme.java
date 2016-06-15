@@ -6,8 +6,8 @@ public class Filme implements Serializable {
 
 
     private long id;
-    private String categoria;
     private String nome;
+    private String categoria;
     private String diretor;
     private int anoLancamento;
     private String nacionalidade;
@@ -15,7 +15,7 @@ public class Filme implements Serializable {
 
     @Override
     public String toString() {
-        return categoria;
+        return nome;
     }
 
     public String getAtorPrincipal() {
