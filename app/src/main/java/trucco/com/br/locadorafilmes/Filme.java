@@ -13,6 +13,8 @@ public class Filme implements Serializable {
     private String nacionalidade;
     private String atorPrincipal;
 
+
+    private String contato;
     @Override
     public String toString() {
         return nome;
@@ -72,5 +74,13 @@ public class Filme implements Serializable {
 
     public void setAnoLancamento(int anoLancamento) {
         this.anoLancamento = anoLancamento;
+    }
+
+    public String getContato() {
+        return contato;
+    }
+
+    public void setContato(String contato) {
+        this.contato = contato;
     }
 }

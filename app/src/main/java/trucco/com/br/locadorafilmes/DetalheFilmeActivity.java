@@ -30,10 +30,42 @@ public class DetalheFilmeActivity extends Activity{
         ((TextView)findViewById(R.id.nacionalidadeTextView)).setText("Pais de Origem: " + filme.getNacionalidade());
         ((TextView)findViewById(R.id.atorPrincipalTextView)).setText("Ator Principal:" + filme.getAtorPrincipal());
 
-       //((TextView)findViewById(R.id.contatoTextView)).setOnClickListener(new OnClickListener() {
+       ((TextView)findViewById(R.id.contatoTextView)).setOnClickListener(new OnClickListener() {
+
+           @Override
+           public void onClick(View v) {
+               TextView t = (TextView) v;
+               Intent i = new Intent(Intent.ACTION_SENDTO);
+               i.setData(Uri.fromParts("mailto:", t.getText().toString(), null));
+               i.putExtra(Intent.EXTRA_SUBJECT, "Informações sobre " + filme.getNome());
+               i.putExtra(Intent.EXTRA_TEXT, "Gostaria de receber mais informações sobre " + filme.getNome());
+               startActivity(i);
+           }
+       });
 
 
+        ((TextView)findViewById(R.id.telefoneTextView)).setOnClickListener(new OnClickListener() {
 
+            @Override
+            public void onClick(View v) {
+                TextView t = (TextView) v;
+                Intent i = new Intent(Intent.ACTION_CALL);
+                i.setData(Uri.parse("tel:" +  t.getText().toString()));
+                startActivity(i);
+            }
+        });
+
+
+        ((TextView)findViewById(R.id.maisInfoButton)).setOnClickListener(new OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                TextView t = (TextView) v;
+                Intent i = new Intent(Intent.ACTION_VIEW);
+                i.setData(Uri.parse("http://www.imdb.com/"));
+                startActivity(i);
+            }
+        });
 
     }
 }
